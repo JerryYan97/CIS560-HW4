@@ -4,7 +4,7 @@
 SurfaceShader::SurfaceShader(OpenGLContext *context)
     : ShaderProgram(context),
       attrPos(-1), attrNor(-1), attrUV(-1),
-      unifModel(-1), unifModelInvTr(-1), unifView(-1), unifProj(-1)
+      unifModel(-1), unifModelInvTr(-1), unifView(-1), unifProj(-1), unifCameraPos(-1)
 {}
 
 SurfaceShader::~SurfaceShader()
@@ -20,6 +20,7 @@ void SurfaceShader::setupMemberVars()
     unifModelInvTr = context->glGetUniformLocation(prog, "u_ModelInvTr");
     unifView       = context->glGetUniformLocation(prog, "u_View");
     unifProj       = context->glGetUniformLocation(prog, "u_Proj");
+    unifCameraPos  = context->glGetUniformLocation(prog, "u_CameraPos");
 
     unifSampler2D  = context->glGetUniformLocation(prog, "u_Texture");
     unifTime = context->glGetUniformLocation(prog, "u_Time");
@@ -68,7 +69,6 @@ void SurfaceShader::draw(Drawable &d, int textureSlot = 0)
 
     context->printGLErrorLog();
 }
-
 
 void SurfaceShader::setModelMatrix(const glm::mat4 &model)
 {
@@ -130,3 +130,24 @@ void SurfaceShader::setViewProjMatrix(const glm::mat4 &v, const glm::mat4 &p)
                        &p[0][0]);
     }
 }
+
+void SurfaceShader::setCameraPos(const glm::vec3 &iCameraPos)
+{
+    useMe();
+
+    if (unifCameraPos != -1) {
+        // Pass a vec3 into a uniform variable in our shader
+                        // Handle to the CameraPos variable on the GPU
+        context->glUniform3f(unifCameraPos,
+                        // Pos.x
+                        iCameraPos.x,
+                        // Pos.y
+                        iCameraPos.y,
+                        // Pos.z
+                        iCameraPos.z);
+
+    }
+
+
+}
+

@@ -84,7 +84,7 @@ void MyGL::paintGL()
     render3DScene();
 
     performPostprocessRenderPass();
-
+    mp_progSurfaceCurrent->setCameraPos(m_camera.eye);
     mp_progSurfaceCurrent->setTime(m_time);
     mp_progPostprocessCurrent->setTime(m_time);
     m_time++;

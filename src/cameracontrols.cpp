@@ -20,6 +20,7 @@ void MyGL::mouseMoveEvent(QMouseEvent *e)
         m_mousePosPrev = pos;
         m_camera.RotatePhi(-diff.x);
         m_camera.RotateTheta(-diff.y);
+
     }
     else if(e->buttons() & Qt::RightButton)
     {
@@ -29,6 +30,7 @@ void MyGL::mouseMoveEvent(QMouseEvent *e)
         m_camera.TranslateAlongRight(-diff.x);
         m_camera.TranslateAlongUp(diff.y);
     }
+    mp_progSurfaceCurrent->setCameraPos(m_camera.eye);
 }
 
 void MyGL::wheelEvent(QWheelEvent *e)

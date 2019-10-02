@@ -18,7 +18,17 @@ void main()
     // TODO Homework 4
     fs_Nor = normalize(u_ModelInvTr * vec3(vs_Nor));
 
-    vec4 modelposition = u_Model * vs_Pos;
+    // Deform  the vertices.
+    //vec4 normPos = normalize(vs_Pos);
+    vec4 normPos = vec4(normalize(vec3(vs_Pos.xyz)), 1);
+    vec4 diffVec = vs_Pos - normPos;
+    float sRate = smoothstep(0, 1, abs(sin(0.01 * u_Time)));
+    diffVec *= sRate;
+    vec4 vs_Dynamic_Pos = vs_Pos - diffVec;
+
+
+    //vec4 modelposition = u_Model * vs_Pos;
+    vec4 modelposition = u_Model * vs_Dynamic_Pos;
     fs_Pos = vec3(modelposition);
     gl_Position = u_Proj * u_View * modelposition;
 }

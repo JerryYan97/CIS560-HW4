@@ -1,0 +1,16 @@
+2019/9/29 14:49 -- Learn something about OpenGL. https://learnopengl-cn.github.io/
+2019/9/30 10:44 -- Learn something about the difference between glUniform3f and glUniform3fv. 
+			https://blog.csdn.net/wangyuchun_799/article/details/7742787, https://learnopengl-cn.github.io/01%20Getting%20started/05%20Shaders/
+		   Find out that the glUniform3f takes in three floats, while glUniform3fv takes in a pointer to the three floats.
+2019/9/30 20:37 -- Learn something about Matcap algorithm. https://www.clicktorelease.com/blog/creating-spherical-environment-mapping-shader/
+2019/10/1 9:03  -- Learn something about procedural palettes. https://iquilezles.org/www/articles/palettes/palettes.htm
+
+
+
+Some Advices:
+I hope that this course can give me more specific explaniation or introduction for something.
+Such as knowledge about Matcap or procedural palettes.
+At least, I hope I can get some links to these pages, which can give me a more clear idea of the whole thing.
+I totally understand that the PPT cannot include so much staffs. So, I hope this course can at least give
+these information in the form of reading material. In this way, it can save me lots of time in searching for
+a reliable article in introducing these knowledge.				

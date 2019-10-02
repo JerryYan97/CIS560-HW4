@@ -43,6 +43,9 @@ void main()
 
     vec4 modelposition = u_Model * vs_Pos;   // Temporarily store the transformed vertex positions for use below
 
+    // View matrix is used to transform world space to camera space.
+    // (inverse(u_View) * vec4(0,0,0,1)) is the camera pos in the world space.
+    // ((inverse(u_View) * vec4(0,0,0,1)) - modelposition) is the vec from modelposition to camera postion in world space.
     fs_LightVec = (inverse(u_View) * vec4(0,0,0,1)) - modelposition;  // Compute the direction in which the light source lies
 
     gl_Position = u_Proj * u_View * modelposition;// gl_Position is a built-in variable of OpenGL which is
