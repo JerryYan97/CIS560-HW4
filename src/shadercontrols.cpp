@@ -1,5 +1,6 @@
 #include "shadercontrols.h"
 #include "ui_shadercontrols.h"
+#include <iostream>
 
 
 ShaderControls::ShaderControls(QWidget *parent) :
@@ -26,6 +27,7 @@ void ShaderControls::slot_setCurrentModel(int i)
 
 void ShaderControls::slot_setCurrentSurfaceShaderProgram(int i)
 {
+    std::cout << "i:" << i << std::endl;
     emit sig_setCurrentSurfaceShaderProgram(i);
 }
 

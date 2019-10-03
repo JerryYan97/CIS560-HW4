@@ -154,6 +154,11 @@
       <string>Vertex Deformation</string>
      </property>
     </item>
+    <item>
+     <property name="text">
+      <string>Disappear Effect</string>
+     </property>
+    </item>
    </widget>
   </widget>
   <widget class="QGroupBox" name="groupBox_3">

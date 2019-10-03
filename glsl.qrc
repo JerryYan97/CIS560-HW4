@@ -17,5 +17,7 @@
         <file>glsl/surface/deform.frag.glsl</file>
         <file>glsl/surface/deform.vert.glsl</file>
         <file>glsl/post/worleywarp.frag.glsl</file>
+        <file>glsl/surface/disappearEffect.frag.glsl</file>
+        <file>glsl/surface/disappearEffect.vert.glsl</file>
     </qresource>
 </RCC>

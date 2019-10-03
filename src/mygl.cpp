@@ -196,6 +196,14 @@ void MyGL::createShaders()
     deform->create(":/glsl/surface/deform.vert.glsl", ":/glsl/surface/deform.frag.glsl");
     m_surfaceShaders.push_back(deform);
 
+    //std::shared_ptr<SurfaceShader> haloEffect = std::make_shared<SurfaceShader>(this);
+    //haloEffect->create(":/glsl/surface/haloEffect.vert.glsl", ":/glsl/surface/haloEffect.frag.glsl");
+    //m_surfaceShaders.push_back(haloEffect);
+
+    std::shared_ptr<SurfaceShader> disappearEffect = std::make_shared<SurfaceShader>(this);
+    disappearEffect->create(":/glsl/surface/disappearEffect.vert.glsl", ":/glsl/surface/disappearEffect.frag.glsl");
+    m_surfaceShaders.push_back(disappearEffect);
+
     slot_setCurrentSurfaceShaderProgram(0);
 
     // Post-process shaders
